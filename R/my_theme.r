@@ -42,16 +42,5 @@ my_theme <- function() {
 }
 
 
-library(ggplot2)
-p <-
-  iris |>
-  ggplot(aes(
-    x = Sepal.Length,
-    y = Sepal.Width
-  )) +
-  geom_point()
-p
-p_theme<- p+my_theme()
-ggsave("myplot.pdf", plot = p_theme)
 
 
