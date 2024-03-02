@@ -4,25 +4,38 @@
 #' @export
 #'
 #' @examples
-#' my_theme
+#' library(ggplot2)
+#' p <-
+#'   iris |>
+#'  ggplot(aes(
+#'    x = Sepal.Length,
+#'    y = Sepal.Width
+#'   )) +
+#'   geom_point()
+#' p
+#' p+my_theme()
 #' 
 # Add ggplot2 as a dependency
 usethis::use_package("ggplot2")
 
-# Define my_theme function
+
 my_theme <- function() {
   # Load ggplot2
   library(ggplot2)
   
   # Customize the default theme
-  theme_custom <- theme_minimal() +
+  theme_custom <- 
     theme(
       # Increase base font size
       text = element_text(size = 12),
       # Change background color 
-      panel.background = element_rect(fill = "darkseagreen3"),
-      # Add a solid line to the major grid lines
-      panel.grid.major = element_line(color = "lightgrey")
+      panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"),
+  panel.grid.major = element_line(size = 0.5, linetype = 'solid',
+                                colour = "white"), 
+  panel.grid.minor = element_line(size = 0.25, linetype = 'solid',
+                                colour = "white")
     )
   
   return(theme_custom)
